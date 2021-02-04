@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>My Library</title>
+</head>
+<body>
+
+    <div class="switch-container">
+        <h1>Theme</h1>
+        <label id="switch" class="switch">
+            <input type="checkbox" onchange="toggleTheme()" id="slider">
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+    <div id="header-container">
+
+      <h1 id="header">My Library</h1>
+
+      <div id="stat-container">
+        
+        <h1 id="log-title">Book Log</h1>
+
+          <div id="log-grid">
+            <div class="log-cell">
+              <h3 class="log-cell-title">completed:</h3>
+              <span id="completed" class="log-cell-stat"></span>
+            </div>
+            <div class="log-cell">
+              <h3 class="log-cell-title">in progress:</h3>
+              <span id="progress" class="log-cell-stat"></span>
+            </div>
+            <div class="log-cell">
+              <h3 class="log-cell-title">on my list:</h3>
+              <span id="onMyList" class="log-cell-stat"></span>
+            </div>
+            <div class="log-cell">
+              <h3 class="log-cell-title">total:</h3>
+              <span id="total" class="log-cell-stat"></span>
+            </div>
+          </div>
+        </div>
+
+        <button id="new-book-button">+</button>
+    </div>
+
+    <div id="container">
+
+    </div>
+
+    <!-- add new book form  -->
+    <div id="new-book-form-div" class="form-div">
+        <span id="close-new-form-button" class="close-form-button">x</span>
+        <h1 class="form-header">Add a new book</h1>
+        <form id="new-book-form" class="new-book-form">
+            <input
+            class="form__input"
+            type="text"
+            id="title"
+            placeholder="Title"
+            required
+          />
+          <input
+            class="form__input"
+            type="text"
+            id="author"
+            placeholder="Author"
+            required
+          />
+          <input
+            class="form__input"
+            type="number"
+            id="read"
+            placeholder="Pages Read"
+            required
+          />
+          <input
+            class="form__input"
+            type="number"
+            id="pages"
+            placeholder="Pages"
+            required
+          />        
+          <button id="new-book-form-button" class="form-button" type="submit">
+            add
+          </button>
+        </form>
+    </div>
+
+    <!-- edit book form  -->
+    <div id="edit-book-form-div" class="form-div">
+        <span id="close-edit-form-button" class="close-form-button">x</span>
+        <h1 class="form-header">Edit book</h1>
+        <form id="edit-book-form" class="new-book-form">
+            <input
+            class="form__input"
+            type="text"
+            id="edit-title"
+            placeholder="Title"
+            required
+          />
+          <input
+            class="form__input"
+            type="text"
+            id="edit-author"
+            placeholder="Author"
+            required
+          />
+          <input
+            class="form__input"
+            type="number"
+            id="edit-read"
+            placeholder="Pages Read"
+            required
+          />
+          <input
+            class="form__input"
+            type="number"
+            id="edit-pages"
+            placeholder="Pages"
+            required
+          />        
+          <input
+            class="form__input"
+            type="number"
+            id="edit-id"
+            hidden
+          />
+          <button id="edit-book-form-button" class="form-button" type="submit">
+            edit
+          </button>
+          <span id="edit-delete" class="delete-span">Delete</span>        
+        </form>
+    </div>
+    <div class="form-overlay"></div>
+</body>
+<script src="index.js"></script>
+<script>
+    // function to set a given theme/color-scheme
+    function setTheme(themeName) {
+          localStorage.setItem('theme', themeName);
+          document.documentElement.className = themeName;
+      }
+
+      // function to toggle between light and dark theme
+      function toggleTheme() {
+          if (localStorage.getItem('theme') === 'theme-dark') {
+              setTheme('theme-light');
+          } else {
+              setTheme('theme-dark');
+          }
+      }
+
+      // Immediately invoked function to set the theme on initial load
+      (function () {
+          if (localStorage.getItem('theme') === 'theme-dark') {
+              setTheme('theme-dark');
+              document.getElementById('slider').checked = false;
+          } else {
+              setTheme('theme-light');
+            document.getElementById('slider').checked = true;
+          }
+      })();
+</script>
+</html>
