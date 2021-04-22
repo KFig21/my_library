@@ -308,11 +308,11 @@ function displayLibrary(array){
 
 // fill library
 
-    // const blink = new Book("Blink", "Malcolm Gladwell", 244, 183);
-    // addBookToLibrary(blink);
-    // const charlie = new Book("Charlie and the Chocolate Factory", "Roald Dahl", 176, 176);
-    // addBookToLibrary(charlie);
-    // const factfulness = new Book("Factfulness", "Hans Rosling", 341, 0);
-    // addBookToLibrary(factfulness);
+    const blink = new Book("Blink", "Malcolm Gladwell", 244, 183);
+    addBookToLibrary(blink);
+    const charlie = new Book("Charlie and the Chocolate Factory", "Roald Dahl", 176, 176);
+    addBookToLibrary(charlie);
+    const factfulness = new Book("Factfulness", "Hans Rosling", 341, 0);
+    addBookToLibrary(factfulness);
 
-    // displayLibrary(myLibrary);
+    displayLibrary(myLibrary);
